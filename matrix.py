@@ -14,31 +14,36 @@ def make_translate( x, y, z ):
         [0,1,0,y],
         [0,0,1,z],
         [0,0,0,1]]
+    return m
 
 def make_scale( x, y, z ):
     m=[[x,0,0,0],
         [0,y,0,0],
         [0,0,z,0],
         [0,0,0,1]]
+    return m
 
 def make_rotX( theta ):
     m=[[1,0,0,0],
         [0,math.cos(theta*math.pi/180),-1*math.sin(theta*math.pi/180),0],
         [0,math.sin(theta*math.pi/180),math.cos(theta*math.pi/180),0],
         [0,0,0,1]]
+    return m
 
 def make_rotY( theta ):
     m=[[math.cos(theta*math.pi/180),0,math.sin(theta*math.pi/180),0],
         [0,1,0,0],
         [-1*math.sin(theta*math.pi/180),math.cos(theta*math.pi/180),0,0],
         [0,0,0,1]]
+    return m
 
 def make_rotZ( theta ):
     m=[[math.cos(theta*math.pi/180),-1*math.sin(theta*math.pi/180),0,0],
         [math.sin(theta*math.pi/180),math.cos(theta*math.pi/180),0,0],
         [0,0,1,0],
         [0,0,0,1]]
-        
+    return m
+
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
@@ -47,7 +52,7 @@ def print_matrix( matrix ):
         for c in range( len(matrix) ):
             s+= str(matrix[c][r]) + ' '
         s+= '\n'
-    print s
+    print (s)
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
