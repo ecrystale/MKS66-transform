@@ -32,10 +32,6 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
-screen = new_screen()
-color = [ 0, 255, 0 ]
-edges = []
-transform = new_matrix()
 
 def parse_file(fname, points, transform, screen, color ):
     script  = open(fname,"r")
@@ -57,7 +53,7 @@ def parse_file(fname, points, transform, screen, color ):
             count+=1
         if i=="move" or i=="translate":
             x=lines[count+1].split(" ")
-            m=make_transform(int(x[0]),int(x[1]),int(x[2]))
+            m=make_translate(int(x[0]),int(x[1]),int(x[2]))
             matrix_mult(m,transform)
             count+=1
         if i=="rotate":
@@ -84,8 +80,20 @@ def parse_file(fname, points, transform, screen, color ):
         if i=="quit":
             script.close()
         count+=1
+'''
+        if len(points)>0:
+            print_matrix(points)
+        if len(transform)>0:
+            print_matrix(transform)
+'''
     #return           
     #pass
 
-#parse_file("script")
-parse_file( 'script', edges, transform, screen, color )
+ '''   
+screen = new_screen()
+color = [ 0, 255, 0 ]
+edges = []
+transform = new_matrix()
+'''
+#parse_file( 'script2.txt', edges, transform, screen, color )
+#parse_file( 'script', edges, transform, screen, color )
